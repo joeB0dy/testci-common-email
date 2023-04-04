@@ -27,6 +27,13 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
         cache: maven
+    - name: Build with Maven
+      id: step_one
+      run: |
+       mvn --batch-mode --update-snapshots package
     - name: Test With Maven
-      run: mvn clean test
+      id: step_two
+      run: |
+       mvn clean test
+
 
